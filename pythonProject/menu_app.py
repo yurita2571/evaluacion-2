@@ -1,0 +1,55 @@
+
+# Evaluacion N°2 Yury Ferreira Lafferte
+
+# Funcion para agregar una compra a la lista y actualizar el total gastado
+def agregar_compra(compras, total_gastado):
+    monto = float(input("Ingrese el monto de la compra: "))
+    compras.append(monto)
+    total_gastado += monto
+    print("Compra agregada correctamente.")
+    return total_gastado
+
+# Funcion para mostrar las compras realizadas
+def mostrar_compras(compras):
+    if not compras:
+        print("No hay compras registradas.")
+    else:
+        print("Compras realizadas:")
+        for i, monto in enumerate(compras, 1):
+            print(f"{i}. ${monto:.2f}")
+
+# Funcion para mostrar el total gastado
+def mostrar_total(total_gastado):
+    print(f"Total gastado: ${total_gastado:.2f}")
+
+# Funcion principal que maneja el bucle principal del programa
+def main():
+    compras = []
+    total_gastado = 0
+
+    # Bucle principal
+    while True:
+        print("\nMenú de Compras")
+        print("1. Agregar compra")
+        print("2. Mostrar compras")
+        print("3. Mostrar total gastado")
+        print("4. Salir")
+        opcion = input("Selecciona una opción: ")
+
+        # Manejo de opciones
+        if opcion == "1":
+            total_gastado = agregar_compra(compras, total_gastado)
+        elif opcion == "2":
+            mostrar_compras(compras)
+        elif opcion == "3":
+            mostrar_total(total_gastado)
+        elif opcion == "4":
+            print("¡Hasta luego!")
+            break
+        else:
+            print("Opción no válida. Por favor, elige una opción válida.")
+
+# Punto de entrada al programa
+if __name__ == "__main__":
+    main()
+
